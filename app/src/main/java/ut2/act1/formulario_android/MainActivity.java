@@ -57,18 +57,23 @@ public class MainActivity extends AppCompatActivity {
         // Variable booleana para recibir si los campos son válidos o no.
         boolean validos = false;
 
+        // Valores de los campos obtenidos y convertidos a String
+        String nombreTexto = nombre.getText().toString();
+        String emailTexto = email.getText().toString();
+        String passwordTexto = password.getText().toString();
+
         // Mensaje de error
         String error = "Hay algún campo vacío";
 
         // Comprobamos con un if que los campos no esten vacios.
-        if (nombre.toString().isEmpty() || email.toString().isEmpty() || password.toString().isEmpty()) {
+        if (nombreTexto.isEmpty() || emailTexto.isEmpty() || passwordTexto.isEmpty()) {
             // Ejecutamos la función que muestra errores en pantalla.
             mostrarError(error);
         }
         // En caso contrario, ejecutamos la función que comprueba si los campos estan bien rellenados
         else {
             // Llamamos a la función para establecer el valor de la variable validos.
-            validos = comprobarCamposCorrectos(email, password);
+            validos = comprobarCamposCorrectos(emailTexto, passwordTexto);
 
             // Si el valor de validos es true entonces lanzar una ventana emergente de registro exitoso.
             if (validos) {
@@ -79,19 +84,16 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Esta función comprueba que los campos esten rellenados con valores correctos
-     * Pasa como parámetros los EditText de la actividad principal.
+     * Pasa como parámetros el contenido en String de los EditText de la actividad.
      *
      * @param email
      * @param password
      */
-    private boolean comprobarCamposCorrectos (EditText email, EditText password) {
+    private boolean comprobarCamposCorrectos (String email, String password) {
         String error = "";
-        // Obtenemos los valores de los campos y los convertimos a String (obviando el nombre ya que no necesitamos comprobarlo).
-        String emailText = email.toString().trim();
-        String passwordText = password.toString().trim();
 
         // Comprobación del campo email usando el patrón EMAIL_ADDRESS incluido en Android Studio.
-        if (!Patterns.EMAIL_ADDRESS.matcher(emailText).matches()) {
+        if (!(Patterns.EMAIL_ADDRESS.matcher(email).matches())) {
             error = "El email no es válido";
 
             // Lanzamos la ventana de error llamando a la función mostrarError().
@@ -102,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // Comprobación de la longitud minima y la complejidad de la contraseña.
-        if (passwordText.length() < 8) {
+        if (password.length() < 8) {
             error = "La contraseña debe tener 8 caracteres mínimo";
 
             // Lanzamos la ventana de error llamando a la función mostrarError().
