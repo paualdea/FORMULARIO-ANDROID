@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.util.Patterns;
 import android.widget.EditText;
 import android.widget.Button;
+import android.widget.Toast;
 
 /**
  * Clase principal de la actividad.
@@ -77,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
             // Si el valor de validos es true entonces lanzar una ventana emergente de registro exitoso.
             if (validos) {
-                registroExitoso(nombre);
+                registroExitoso(nombreTexto);
             }
         }
     }
@@ -134,26 +135,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Esta función tiene la única misión de mostrar una ventana con el mensaje de registro exitoso.
-     * Tras cerrar esta ventana emergente la aplicación se cierra.
+     * Esta función tiene la única misión de mostrar un Toast con el mensaje de registro exitoso.
      */
-    private void registroExitoso(EditText nombre) {
-        String nombreTexto = nombre.toString();
-
-        // Creamos una nueva ventana emergente para mostrar el registro exitoso
-        new AlertDialog.Builder(this)
-                .setTitle("Registro completado")
-                .setMessage("El usuario " + nombreTexto + " ha sido registrado correctamente")
-                // Añadimos un listener al botón de la ventana emergente para que cuando se pulse se cierre la aplicación
-                .setPositiveButton("Entendido", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // Esta línea cierra la aplicación al completo.
-                        finishAffinity();
-                    }
-                })
-                .show();
+    private void registroExitoso(String nombre) {
+        // Creamos un Toast para mostrar el registro exitoso del usuario X.
+        Toast.makeText(getApplicationContext(), "Usuario " + nombre + " registrado correctamente", Toast.LENGTH_LONG).show();
     }
-
-
 }
