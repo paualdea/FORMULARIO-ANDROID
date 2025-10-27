@@ -5,11 +5,17 @@ Este proyecto es una aplicación Android sencilla desarrollada como parte de la 
 El objetivo principal es poner en práctica la construcción de interfaces de usuario adaptativas con `ConstraintLayout` y la implementación de lógica para la validación de datos de entrada del usuario.
 
 
-## Cómo Ejecutar el Proyecto
+## Cómo Ejecutar el Proyecto (PC)
 
 1.  Clona este repositorio en tu máquina local.
 2.  Abre el proyecto con Android Studio.
 3.  Ejecuta la aplicación en un emulador de Android o en un dispositivo físico.
+
+## Cómo Ejecutar el Proyecto (Android)
+
+1. Descarga la APK de la _release_
+2. Instala la aplicación
+3. Ejecuta la aplicación normalmente
 
 ---
 _Este proyecto sirve como control de versiones y evidencia del trabajo realizado para la asignatura._
