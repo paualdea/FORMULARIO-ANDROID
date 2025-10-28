@@ -1,7 +1,6 @@
 package ut2.act1.formulario_android;
 
 // IMPORTACIONES
-import android.content.DialogInterface;
 import android.os.Bundle;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AlertDialog;
